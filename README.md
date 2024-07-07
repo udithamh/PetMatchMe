@@ -1,2 +1,2 @@
 # PetMatchMe
-web group projet
+web group project
