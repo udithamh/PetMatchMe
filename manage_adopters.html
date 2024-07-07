@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Panel</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css2/main.min.css" />
+  </head>
+  <body>
+    <h2>Manage Adopters</h2>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Example Adopter Row -->
+        <tr>
+          <td>John Doe</td>
+          <td>john.doe@example.com</td>
+          <td>
+            <button class="btn btn-danger" onclick="deleteAdopter(1)">
+              Delete
+            </button>
+          </td>
+        </tr>
+        <!-- More adopter rows here -->
+      </tbody>
+    </table>
+    <script>
+      function deleteAdopter(adopterId) {
+        // Implement delete functionality
+        alert("Adopter deleted with ID: " + adopterId);
+      }
+    </script>
+  </body>
+</html>

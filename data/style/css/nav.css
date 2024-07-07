@@ -1,0 +1,10 @@
+.navbar {
+  background-color: rgba(6, 56, 163, 0.932); /* Semi-transparent background */
+  position: sticky;
+  width: 100%;
+  z-index: 1000;
+}
+#navlogo {
+  width: 200px; /* Adjust the width as needed */
+  height: auto; /* Maintain aspect ratio */
+}

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pet Listing and Search</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="data/style/css/nav.css" />
+    <style>
+      body,
+      html {
+        height: 100%;
+        margin: 0;
+        background-color: #f8f9fa;
+      }
+
+      .container-fluid {
+        display: flex;
+        height: 100%;
+      }
+
+      .sidebar {
+        width: 25%;
+        background: #235792; /* Light background color for the sidebar */
+        padding: 2rem;
+        border-right: 1px solid #e9ecef;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        position: fixed;
+        height: 100%;
+        overflow-y: auto;
+        color: white;
+      }
+
+      .content {
+        margin-left: 25%;
+        padding: 2rem;
+        flex-grow: 1;
+      }
+
+      .pet-listing {
+        background: #fff;
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .pet-item {
+        background: #e6f7ff; /* Light background color for pet cards */
+        border: 1px solid #b3e5fc;
+        border-radius: 10px;
+        padding: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .pet-item:last-child {
+        border-bottom: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container-fluid">
+      <div class="sidebar">
+        <h3>Find your Pet</h3>
+        <form id="filterForm">
+          <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="name"
+              placeholder="Enter pet name"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="age" class="form-label">Age</label>
+            <input
+              type="number"
+              class="form-control"
+              id="age"
+              placeholder="Enter pet age"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="breed" class="form-label">Breed</label>
+            <input
+              type="text"
+              class="form-control"
+              id="breed"
+              placeholder="Enter pet breed"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="gender" class="form-label">Gender</label>
+            <select class="form-select" id="gender">
+              <option value="">Select gender</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="size" class="form-label">Size</label>
+            <select class="form-select" id="size">
+              <option value="">Select size</option>
+              <option value="Small">Small</option>
+              <option value="Medium">Medium</option>
+              <option value="Large">Large</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="location" class="form-label">Location</label>
+            <input
+              type="text"
+              class="form-control"
+              id="location"
+              placeholder="Enter location"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="species" class="form-label">Species</label>
+            <input
+              type="text"
+              class="form-control"
+              id="species"
+              placeholder="Enter species"
+            />
+          </div>
+          <button type="submit" class="btn btn-warning w-100">Search</button>
+        </form>
+      </div>
+
+      <div class="content">
+        <h1 class="text-center mb-4">Pet Listing</h1>
+        <div class="pet-listing" id="petListing">
+          <h3>Pets</h3>
+          <!-- Pet items will be appended here dynamically -->
+          <div class="pet-item">
+            <h5>Pet Name: Bella</h5>
+            <p>Age: 3</p>
+            <p>Breed: Labrador</p>
+            <p>Gender: Female</p>
+            <p>Size: Medium</p>
+            <p>Location: New York</p>
+            <p>Species: Dog</p>
+          </div>
+          <div class="pet-item">
+            <h5>Pet Name: Max</h5>
+            <p>Age: 2</p>
+            <p>Breed: Beagle</p>
+            <p>Gender: Male</p>
+            <p>Size: Small</p>
+            <p>Location: San Francisco</p>
+            <p>Species: Dog</p>
+          </div>
+          <!-- More pet items can be added similarly -->
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+      integrity="sha384-oBqDVmMz4fnFO9gybBogGzOgSJC3kFzIMhx/rD5rHrEF7bUJUUdceC+jjI4p69Vt"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+      integrity="sha384-qzR0DbyMkhWwC4+4pCOlWyhx2qzHEStFRmPa3biMvRt0cAnjTx3cbwJMyzYG5E5K"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      document
+        .getElementById("filterForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+          // Logic to filter pets based on the form input
+          const name = document.getElementById("name").value.toLowerCase();
+          const age = document.getElementById("age").value;
+          const breed = document.getElementById("breed").value.toLowerCase();
+          const gender = document.getElementById("gender").value;
+          const size = document.getElementById("size").value;
+          const location = document
+            .getElementById("location")
+            .value.toLowerCase();
+          const species = document
+            .getElementById("species")
+            .value.toLowerCase();
+
+          const petItems = document.querySelectorAll(".pet-item");
+          petItems.forEach((item) => {
+            const itemName = item.querySelector("h5").innerText.toLowerCase();
+            const itemAge = item
+              .querySelector("p:nth-child(2)")
+              .innerText.split(": ")[1];
+            const itemBreed = item
+              .querySelector("p:nth-child(3)")
+              .innerText.toLowerCase();
+            const itemGender = item
+              .querySelector("p:nth-child(4)")
+              .innerText.split(": ")[1];
+            const itemSize = item
+              .querySelector("p:nth-child(5)")
+              .innerText.split(": ")[1];
+            const itemLocation = item
+              .querySelector("p:nth-child(6)")
+              .innerText.toLowerCase();
+            const itemSpecies = item
+              .querySelector("p:nth-child(7)")
+              .innerText.toLowerCase();
+
+            if (
+              (name && !itemName.includes(name)) ||
+              (age && itemAge != age) ||
+              (breed && !itemBreed.includes(breed)) ||
+              (gender && itemGender != gender) ||
+              (size && itemSize != size) ||
+              (location && !itemLocation.includes(location)) ||
+              (species && !itemSpecies.includes(species))
+            ) {
+              item.style.display = "none";
+            } else {
+              item.style.display = "block";
+            }
+          });
+        });
+    </script>
+  </body>
+</html>

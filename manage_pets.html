@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Panel</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css2/main.min.css" />
+  </head>
+  <body>
+    <h2>Manage Pets</h2>
+    <button class="btn btn-success mb-3" onclick="loadContent('add_pet.html')">
+      Add New Pet
+    </button>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Breed</th>
+          <th>Age</th>
+          <th>Size</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Example Pet Row -->
+        <tr>
+          <td>Buddy</td>
+          <td>Golden Retriever</td>
+          <td>3 years</td>
+          <td>Large</td>
+          <td>
+            <button
+              class="btn btn-primary"
+              onclick="loadContent('edit_pet.html?id=1')"
+            >
+              Edit
+            </button>
+            <button class="btn btn-danger" onclick="deletePet(1)">
+              Delete
+            </button>
+          </td>
+        </tr>
+        <!-- More pet rows here -->
+      </tbody>
+    </table>
+    <script>
+      function deletePet(petId) {
+        // Implement delete functionality
+        alert("Pet deleted with ID: " + petId);
+      }
+    </script>
+  </body>
+</html>

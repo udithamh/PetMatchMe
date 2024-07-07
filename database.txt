@@ -1,0 +1,45 @@
+cREATE DATABASE pet_adoption;
+
+USE pet_adoption;
+
+-- Users table
+CREATE TABLE users (
+    user_id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL,
+    full_name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    role ENUM('user', 'admin') NOT NULL DEFAULT 'user',
+    telephone VARCHAR(20),
+    address TEXT,
+   gender ENUM('Male', 'Female') NOT NULL
+
+);
+-- Pets table
+CREATE TABLE pets (
+    pet_id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    age INT NOT NULL,
+    breed VARCHAR(100) NOT NULL,
+    gender ENUM('Male', 'Female') NOT NULL,
+    size ENUM('Small', 'Medium', 'Large') NOT NULL,
+    health_status VARCHAR(255) NOT NULL,
+    description TEXT NOT NULL,
+    photos VARCHAR(255) NOT NULL,
+    location VARCHAR(255) NOT NULL,
+    species VARCHAR(100) NOT NULL
+);
+
+
+
+-- Applications table
+CREATE TABLE applications (
+    application_id VARCHAR(10) PRIMARY KEY,
+    user_id VARCHAR(10) NOT NULL,
+    pet_id VARCHAR(10) NOT NULL,
+    reason TEXT NOT NULL,
+    experience TEXT NOT NULL,
+    status ENUM('Pending', 'Approved', 'Rejected') NOT NULL DEFAULT 'Pending',
+    FOREIGN KEY (user_id) REFERENCES users(user_id),
+    FOREIGN KEY (pet_id) REFERENCES pets(pet_id)
+);

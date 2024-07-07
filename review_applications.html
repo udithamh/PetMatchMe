@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Panel</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css2/main.min.css" />
+  </head>
+  <body>
+    <h2>Review Applications</h2>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Applicant Name</th>
+          <th>Pet Name</th>
+          <th>Application Date</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Example Application Row -->
+        <tr>
+          <td>John Doe</td>
+          <td>Buddy</td>
+          <td>2024-05-15</td>
+          <td>Pending</td>
+          <td>
+            <button class="btn btn-success" onclick="approveApplication(1)">
+              Approve
+            </button>
+            <button class="btn btn-danger" onclick="rejectApplication(1)">
+              Reject
+            </button>
+          </td>
+        </tr>
+        <!-- More application rows here -->
+      </tbody>
+    </table>
+    <script>
+      function approveApplication(applicationId) {
+        // Implement approve functionality
+        alert("Application approved with ID: " + applicationId);
+      }
+
+      function rejectApplication(applicationId) {
+        // Implement reject functionality
+        alert("Application rejected with ID: " + applicationId);
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Page</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <style>
+      body,
+      html {
+        height: 100%;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #f8f9fa;
+      }
+      .login-container {
+        max-width: 400px;
+        padding: 2rem;
+        background: #fff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        text-align: center;
+      }
+      .login-container .btn-primary {
+        background-color: #007bff;
+        border: none;
+      }
+      .login-container .btn-primary:hover {
+        background-color: #0056b3;
+      }
+      .login-container .form-control:focus {
+        box-shadow: none;
+        border-color: #007bff;
+      }
+      .login-container h2 {
+        margin-bottom: 2rem;
+        font-weight: bold;
+      }
+      .login-container .logo {
+        width: 100px;
+        height: auto;
+        margin-bottom: 1rem;
+      }
+      .login-container .form-check-label {
+        font-size: 0.9rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="login-container">
+      <img src="logoc.png" alt="Logo" class="logo" />
+      <!-- Replace logo.png with your logo file -->
+      <h2>Login</h2>
+      <form>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email address</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            placeholder="Enter your email"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            placeholder="Enter your password"
+          />
+        </div>
+        <button type="submit" class="btn btn-warning w-100">Login</button>
+        <p class="mt-3">
+          <a href="reset-password.html">Reset Password</a>
+        </p>
+        <p class="mt-3">
+          Don't have an account? <a href="register.html">Register</a>
+        </p>
+      </form>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+      integrity="sha384-oBqDVmMz4fnFO9gybBogGzOgSJC3kFzIMhx/rD5rHrEF7bUJUUdceC+jjI4p69Vt"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+      integrity="sha384-qzR0DbyMkhWwC4+4pCOlWyhx2qzHEStFRmPa3biMvRt0cAnjTx3cbwJMyzYG5E5K"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
